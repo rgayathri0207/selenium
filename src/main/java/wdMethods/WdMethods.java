@@ -6,17 +6,17 @@ import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-public interface WdMethods {		
-	
-		/**
-		 * This method will launch the Any browser and 
-		 * maximise the browser and set the wait for 30 seconds 
-		 * and load the url
-		 * @author Babu - TestLeaf
-		 * @param browser - This will load the specified browser  
-		 * @throws MalformedURLException 
-		 */
-		public void startApp(String browser,String url);
+public interface WdMethods {
+		
+	/**
+	 * This method will launch the Any browser and 
+	 * maximise the browser and set the wait for 30 seconds 
+	 * and load the url
+	 * @author Babu - TestLeaf
+	 * @param browser - This will load the specified browser  
+	 * @throws MalformedURLException 
+	 */
+	public void startApp(String browser,String url);
 
 		/**
 		 * This method will locate the element using any given locator
@@ -165,7 +165,7 @@ public interface WdMethods {
 		 * This method will take snapshot of the browser
 		 * @author Babu - TestLeaf
 		 */
-		public void takeSnap();
+		public long takeSnap();
 			
 		/**
 		 * This method will close the active browser
@@ -180,3 +180,6 @@ public interface WdMethods {
 		public void closeAllBrowsers();
 
 }
+
+
+

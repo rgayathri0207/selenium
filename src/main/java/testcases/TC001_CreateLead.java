@@ -1,30 +1,49 @@
 package testcases;
 
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import pages.LoginPage;
 import wdMethods.ProjectMethods;
 
-public class TC001_CreateLead extends ProjectMethods {
-	
-	@BeforeClass(groups="common")
+public class TC001_CreateLead extends ProjectMethods{
+
+	@BeforeTest
 	public void setData() {
 		testCaseName = "TC001_CreateLead";
-		testCaseDescription ="Create a lead";
-		category = "Smoke";
-		author= "Babu";
-		dataSheetName="TC001";
+		testDescription ="create new lead in leaftaps";
+		testNodes = "Leads";
+		authors ="Gayatri";
+		category = "smoke";
+		dataSheetName="Create Lead";
 	}
 	@Test(dataProvider="fetchData")
-	public  void createLead(String cname, String fname, String lname, String email)   {
+	public void createLead(String uname, String pwd,String cName, String fName,String lName) {
+		new LoginPage() 
+		.enterUsername(uname)
+		.enterPassword(pwd)  
+		.clickLogin()
+		.clickCRM()
+		.clickLeads()
+		.clickCreateLead()
+		.enterCompanyName(cName)
+		.enterFirstName(fName)
+		.enterLastName(lName)
+		.clickCreateLeadButton()		
+		.verifyFirstname(fName);
 		
-		click(locateElement("linktext", "Create Lead"));
-		type(locateElement("id", "createLeadForm_companyName"), cname);
-		type(locateElement("id", "createLeadForm_firstName"), fname);
-		type(locateElement("id", "createLeadForm_lastName"), lname);
-		type(locateElement("id", "createLeadForm_primaryEmail"), email); 
-		click(locateElement("name", "submitButton"));
+		
 	}
-	
 
 }
+
+
+
+
+
+
+
+
+
+
+
